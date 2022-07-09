@@ -1,0 +1,224 @@
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/chatbox.css') %>">
+
+<div id="home-container">
+
+    <% if(locals.user){ %>
+
+        <section id="side-nav">
+            <% if(user.avatar){ %>
+                <div class="user-profile">
+                    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+                </div>
+            <% } else{ %>    
+                <div class="user-profile">
+                    <img src="https://avatars.dicebear.com/api/avataaars/<%= user.name %>.svg" width="100"/>
+                </div>
+            <% } %> 
+            <div id="chat-btn">
+                <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+            </div>
+            <div id="search-btn">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+        </section>
+
+        <section id="profile-section">
+            <ion-icon id="close-btn" name="close-outline"></ion-icon>
+            <% if(user.avatar){ %>
+                <div class="user-profile">
+                    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+                </div>
+            <% } else{ %>    
+                <div class="user-profile">
+                    <img src="https://avatars.dicebear.com/api/avataaars/<%= user.name %>.svg" width="100"/>
+                </div>
+            <% } %>   
+            <div id="user-info">
+                <p><%= locals.user.name %></p>
+                <p><%= locals.user.email %></p>
+            </div> 
+
+            <div class="friends-list">
+                <h4>Your Friends</h4>
+                <div class="friends">
+                    <% if (locals.user.friendships.length == 0){ %>
+                        <p>No friends found!</p>
+                    <% } else { %>
+                        <% for (f of friends.friendships){ %>
+                                
+                            <% if(locals.user.id == f.from_user.id){ %>
+                                <div class="all-friends">
+                                    <a class="f-list" href="/users/profile/<%= f.to_user._id %>">
+                                        <% if(f.to_user.avatar) { %>
+                                            <div class="profile">
+                                                <img src="<%= f.to_user.avatar %>" alt="<%= f.to_user.name %>" width="50">
+                                            </div>
+                                        <% } else { %>
+                                            <div class="profile">
+                                                <img src="https://avatars.dicebear.com/api/avataaars/<%= f.to_user.name %>.svg" alt="<%= f.to_user.name %>" width="50">
+                                            </div>
+                                        <% } %>    
+                                                    
+                                        <p> <%= f.to_user.name %> </p>
+                                    </a>
+                                    <div class="msg-clo">
+                                        <button class="msg-btn" data-user="<%= f._id %>">Message</button>
+                                        <a class="friend-toggle-btn" href="/friends/toggle/<%= f.to_user._id %>"><ion-icon name="close"></ion-icon></a>
+                                    </div>
+                                    <%- include('_chat_box') -%>
+                                </div>
+                            <% } %>   
+                                
+                            <% if(locals.user.id == f.to_user.id){ %>
+        
+                                <div class="all-friends">
+                                    <a class="f-list" href="/users/profile/<%= f.from_user._id %>">
+                                        <% if(f.from_user.avatar) { %>
+                                            <div class="profile">
+                                                <img src="<%= f.from_user.avatar %>" alt="<%= f.from_user.name %>" width="50">
+                                            </div>
+                                        <% } else { %>
+                                            <div class="profile">
+                                                <img src="https://avatars.dicebear.com/api/avataaars/<%= f.from_user.name %>.svg" alt="<%= f.from_user.name %>" width="50">
+                                            </div>
+                                        <% } %>
+        
+                                        <p> <%= f.from_user.name %> </p>
+                                    </a>
+                                        
+                                    <div class="msg-clo">
+                                        <button class="msg-btn" data-user="<%= f._id %>">Message</button>
+                                        <a class="friend-toggle-btn" href="/friends/toggle/<%= f.from_user._id %>"><ion-icon name="close"></ion-icon></a>
+                                    </div>
+                                    <%- include('_chat_box') -%>
+                                            
+                                </div>
+        
+                            <% } %>    
+        
+                        <% } %>    
+                    <% } %>    
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="feed-posts">
+            <h4>Home</h4>
+            
+                <form action="/posts/create" id="new-post-form" enctype="multipart/form-data" method="POST">
+                    <textarea oninput="auto_grow(this)" id="mytextarea" name="content" rows="1" placeholder="What's happening?" required></textarea>
+                    <label for="picture" class="custom-file-upload"><ion-icon name="image-outline"></ion-icon></label>
+                    <input type="file" id="picture" name="picture" accept="image/*" placeholder="Picture">
+                    <input class="post-btn" type="submit" value="Post">
+                </form>
+            
+            <div id="posts-container">
+                <ul>
+                    <% for(post of posts){ %>
+                        <%- include('_post') -%>
+                    <% } %>    
+                </ul>
+            </div>
+        </section>
+    
+        <section id="user-friends">
+            <div>
+                <ion-icon id="closeUser-btn" name="close-outline"></ion-icon>
+            </div>
+            <div id="search-box">
+                <input type="search" id="search-input" placeholder="Search">
+                <ion-icon id="search-icon" name="search-outline"></ion-icon>
+                <div id="lookup" style="display: none;">
+                    <ul></ul>
+                </div>
+            </div>
+            <div>
+                <h4>Who to follow</h4>
+                <div class="user-col">
+                    <% for (u of all_users){%>
+                        <div class="all-user">
+                            <a class="user-list" href="/users/profile/<%= u.id %>">
+                                <% if(u.avatar){ %>
+                                    <div class="profile">
+                                        <img src="<%= u.avatar %>" alt="<%= u.name %>" width="50">
+                                    </div>
+                                <% } else { %>
+                                    <div class="profile">
+                                        <img src="https://avatars.dicebear.com/api/avataaars/<%= u.name %>.svg" alt="<%= u.name %>" width="50">
+                                    </div>
+                                <% } %>  
+                                <p><%= u.name %></p>
+                            </a>
+                        </div>
+                    <% } %> 
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <div id="bottom-nav">
+            <ion-icon id="home-nav" class="btn active" name="home-outline"></ion-icon>
+            <ion-icon id="chat-nav" class="btn" name="chatbox-ellipses-outline"></ion-icon>
+            <ion-icon id="search-nav" class="btn" name="search-outline"></ion-icon>
+        </div>
+    
+    <% }else{ %>
+
+        <div class="background" style="margin-bottom: -1rem;">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <div class="landing-page">
+                <h1>INNOVATION</h1>
+                <h2>is our trend</h2>
+            </div>
+        </div>
+
+    <% } %>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="<%= assetPath('js/home_post_comments.js') %>"></script>
+<script src="<%= assetPath('js/home_posts.js') %>"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
+
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
+<script>
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js" integrity="sha512-zN6KYOtONNTOGXz0RkWX2EpavN9VdIs+2w+To+fhciFv83YA9maUpi2lzZWrOfKXdFIZZomWufBznkyHi3a8oQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
+<script src="<%= assetPath('js/comment_layout.js') %>"></script>
+<script src="<%= assetPath('js/search_box.js') %>"></script>
+<script src="<%= assetPath('js/toggle_profile.js') %>"></script>
+<script src="<%= assetPath('js/bottom_nav.js') %>"></script>
+<% if(locals.user){ %>
+    
+    <script>   
+        $('.msg-btn').each(function(){
+            let self = this;
+            new ChatEngine($(self).attr('data-user'), '<%= locals.user.id %>', $(self).attr('data-user'));
+        });
+    </script> 
+     
+<% } %>

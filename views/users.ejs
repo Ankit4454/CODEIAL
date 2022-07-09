@@ -1,0 +1,92 @@
+<link rel="stylesheet"  href="<%= assetPath('css/users.css') %>">
+
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+
+    <div class="module">
+        <div class="profile">
+
+            <% if(user.id == profile_user.id){ %>
+                
+                <% if(user.avatar){%>
+                    <div class="user-profile">
+                        <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+                    </div>
+                <% } else{ %>
+                    <div class="user-profile">
+                        <img src="https://avatars.dicebear.com/api/avataaars/<%= user.name %>.svg" alt="<%= user.name %>" width="100">
+                    </div>
+                <% } %> 
+                <button class="edit-btn" onclick="editForm()"><ion-icon name="create"></ion-icon></button>
+                
+                <div class="user-detail">
+                    <div class="profile-user">
+                        <p>
+                            <%= profile_user.name %>
+                        </p>
+                        
+                        <p>
+                            <%= profile_user.email %>
+                        </p>
+
+                        <a class="userLogoutBtn" href="/users/logout">Logout</a>
+                    </div> 
+                </div>
+                
+                <div class="form-detail active-form">
+                    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
+                        <label for="name">NAME</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+                        <label for="avatar">AVATAR</label>
+                        <input type="file" name="avatar" id="avatar" placeholder="Profile Picture">
+                        <div class="update-btn">
+                            <input type="submit" id="update" value="Update">
+                        </div>
+                    </form>
+                </div>
+                
+            <%}else{%>    
+                <% if(profile_user.avatar){%>
+                    <div class="user-profile">
+                        <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>">
+                    </div>
+                <% } else{ %>
+                    <div class="user-profile">
+                        <img src="https://avatars.dicebear.com/api/avataaars/<%= profile_user.name %>.svg" alt="<%= profile_user.name %>">
+                    </div>
+                <% } %>    
+                <div class="profile-user">
+                    <p>
+                        <%= profile_user.name %>
+                    </p>
+                    
+                    <p>
+                        <%= profile_user.email %>
+                    </p>
+                </div>  
+                <div class="friend-btn">
+                    <a class="friend-toggle-btn" href="/friends/toggle/<%= profile_user.id %>">Follow</a>
+                </div>
+            <% } %> 
+        
+        </div>
+    </div>
+
+</div>
+
+<script src="<%= assetPath('js/toggle_friends.js') %>"></script>
+<script src="<%= assetPath('js/edit_form.js') %>"></script>
+
+   

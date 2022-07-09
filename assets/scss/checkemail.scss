@@ -1,0 +1,66 @@
+
+.checkemail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 30vw;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+
+    form{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+
+        label{
+            color: white;
+        }
+
+        input{
+            width: 100%;
+            margin: 5px 0;
+            color: white;
+            background: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        input:focus{
+            border-bottom: 1px solid royalblue;
+        }
+
+        h5{
+            margin: 1rem 0;
+        }
+
+        .send-btn{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button{
+                padding: 0.4rem 3rem;
+                width: fit-content;
+                border: 1px solid white;
+                background: white;
+                color: royalblue;
+                border-radius: 5px;
+                margin-top: 1rem;
+                letter-spacing: 2px;
+            }
+
+            button:hover{
+                background: transparent;
+                color: white;
+            }
+        }
+    }    
+}

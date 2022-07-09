@@ -1,0 +1,90 @@
+<% if(locals.user){ %>
+
+    <% if(locals.user.id == f.from_user.id){ %>
+
+        <div id="<%= f._id %>" class="chat-box1 toggle-chat-box">
+            <div class="wrap-user">
+                <a class="user-info" href="/users/profile/<%= f.to_user._id %>">
+                    <% if(f.to_user.avatar) { %>
+                        <div class="profile">
+                            <img src="<%= f.to_user.avatar %>" alt="<%= f.to_user.name %>" width="50">
+                        </div>
+                    <% } else { %>
+                        <div class="profile">
+                            <img src="https://avatars.dicebear.com/api/avataaars/<%= f.to_user.name %>.svg" alt="<%= f.to_user.name %>" width="50">
+                        </div>
+                    <% } %>    
+                    <p> <%= f.to_user.name %> </p>
+                </a>   
+                <ion-icon class="close-chat" name="close"></ion-icon>
+            </div>
+            <ul class="chat-messages" data-user="<%= f._id %>">
+                <% for(let i of message){ %>
+                    <% if(f._id == i.room_id){ %>
+                        <% for (let j of i.messages){ %>
+                            <% if(locals.user.id != j.sender){ %>
+                                <li class="other-msg">
+                                    <span><%= j.content %></span>
+                                </li>
+                            <% } else { %>
+                                <li class="self-msg">
+                                    <span><%= j.content %></span>
+                                </li>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </ul>
+            <div class="message-container">
+                <input class="message-input" name="message" placeholder="Message">
+                <button type="submit" class="send-btn" data-user="<%= f._id %>"><ion-icon name="send-sharp"></ion-icon></button>
+            </div>
+        </div>
+
+    <% } %>
+    
+    <% if(locals.user.id == f.to_user.id){ %>
+
+        <div id="<%= f._id %>" class="chat-box1 toggle-chat-box">
+            <div class="wrap-user">
+                <a class="user-info" href="/users/profile/<%= f.from_user._id %>">
+                    <% if(f.from_user.avatar) { %>
+                        <div class="profile">
+                            <img src="<%= f.from_user.avatar %>" alt="<%= f.from_user.name %>" width="50">
+                        </div>
+                    <% } else { %>
+                        <div class="profile">
+                            <img src="https://avatars.dicebear.com/api/avataaars/<%= f.from_user.name %>.svg" alt="<%= f.from_user.name %>" width="50">
+                        </div>
+                    <% } %>
+
+                    <p> <%= f.from_user.name %> </p>
+                </a> 
+                <ion-icon class="close-chat" name="close"></ion-icon>
+            </div>
+            <ul class="chat-messages" data-user="<%= f._id %>">
+                <% for(let i of message){ %>
+                    <% if(f._id == i.room_id){ %>
+                        <% for (let j of i.messages){ %>
+                            <% if(locals.user.id != j.sender){ %>
+                                <li class="other-msg">
+                                    <span><%= j.content %></span>
+                                </li>
+                            <% } else { %>
+                                <li class="self-msg">
+                                    <span><%= j.content %></span>
+                                </li>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </ul>
+            <div class="message-container">
+                <input class="message-input" name="message" placeholder="Message">
+                <button type="submit" class="send-btn" data-user="<%= f._id %>"><ion-icon name="send-sharp"></ion-icon></button>
+            </div>
+        </div>
+
+    <% } %>    
+
+<% } %>    

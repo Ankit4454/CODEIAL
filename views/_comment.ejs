@@ -1,0 +1,37 @@
+<li id="comment-<%= comment._id %>">
+    <div class="comment-head">
+        <a class="comment-user" href="/users/profile/<%=comment.user._id%>">
+            <% if(comment.user.avatar){ %>
+                <div class="profile">
+                    <img src="<%=comment.user.avatar%>" alt="<%=comment.user.name%>" width="50">
+                </div>
+            <% }else{ %>
+                <div class="profile">
+                    <img src="https://avatars.dicebear.com/api/avataaars/<%=comment.user.name%>.svg" alt="<%=comment.user.name%>" width="50">
+                </div>
+            <% } %>     
+            <h4>
+                <%= comment.user.name %>&nbsp;·&nbsp;
+            </h4>
+            <small><%=moment(comment.createdAt).fromNow().charAt(0).toUpperCase()+moment(comment.createdAt).fromNow().slice(1)%></small>
+        </a>
+        <% if (locals.user && locals.user.id == comment.user.id) { %>
+            <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>"><ion-icon name="close"></ion-icon></a>
+        <% } %>    
+    </div>
+    <div class="comment-content">
+        <div class="content">
+            <p><%= comment.content %></p>
+        </div>
+        
+        <small class="heart">
+            <% if (locals.user){ %>
+                <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%= comment._id %>&type=Comment">
+                    <ion-icon name="heart-outline"></ion-icon>&nbsp;<%= comment.likes.length %>
+                </a>
+            <% }else{ %>
+                <%= comment.likes.length %> Likes
+            <% } %>       
+        </small>
+    </div>
+</li>

@@ -1,0 +1,94 @@
+.chat-box1 {
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+  height: 400px;
+  width: 400px;
+  padding: 5px;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  z-index: 3000; }
+  .chat-box1 .wrap-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem; }
+    .chat-box1 .wrap-user .user-info {
+      display: flex;
+      align-items: center; }
+      .chat-box1 .wrap-user .user-info .profile {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1rem; }
+        .chat-box1 .wrap-user .user-info .profile img {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%; }
+    .chat-box1 .wrap-user .close-chat {
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 5px;
+      background: royalblue;
+      color: white;
+      cursor: pointer; }
+  .chat-box1 .chat-messages::-webkit-scrollbar {
+    display: none; }
+  .chat-box1 .chat-messages {
+    list-style: none;
+    height: 75%;
+    padding: 1rem;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    .chat-box1 .chat-messages .other-msg {
+      text-align: left;
+      margin: 0.6rem 0; }
+      .chat-box1 .chat-messages .other-msg span {
+        display: inline-block;
+        background: white;
+        padding: 0.6rem 1rem;
+        border-radius: 5px; }
+    .chat-box1 .chat-messages .self-msg {
+      text-align: right;
+      margin: 0.6rem 0;
+      color: white; }
+      .chat-box1 .chat-messages .self-msg span {
+        display: inline-block;
+        background: royalblue;
+        padding: 0.6rem 1rem;
+        border-radius: 5px; }
+  .chat-box1 .message-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    display: flex; }
+    .chat-box1 .message-container .message-input {
+      width: 80%;
+      margin-left: 1rem;
+      padding: 5px;
+      border-radius: 10px; }
+    .chat-box1 .message-container .send-btn {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 1rem;
+      background: royalblue;
+      border: none;
+      border-radius: 10px; }
+      .chat-box1 .message-container .send-btn ion-icon {
+        font-size: 1.2rem;
+        color: white;
+        transform: translateX(3px); }
+
+.toggle-chat-box {
+  display: none; }
+
+@media only screen and (max-width: 768px) {
+  .chat-box1 {
+    bottom: 5.5rem;
+    width: 100%;
+    height: 80%;
+    right: 0; } }

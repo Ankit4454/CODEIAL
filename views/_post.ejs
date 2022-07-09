@@ -1,0 +1,95 @@
+<li class="post-box" id="post-<%= post._id %>">
+    <div class="post-head">
+        <a class="post-user" href="/users/profile/<%=post.user._id%>">
+            <% if(post.user.avatar){ %>
+                <div class="profile">
+                    <img src="<%=post.user.avatar%>" alt="<%=post.user.name%>" width="50">
+                </div>
+            <% }else{ %>
+                <div class="profile">
+                    <img src="https://avatars.dicebear.com/api/avataaars/<%=post.user.name%>.svg" alt="<%=post.user.name%>" width="50">
+                </div>
+            <% } %>     
+            <h4>
+                <%= post.user.name %>&nbsp;·&nbsp;
+            </h4>
+            <small><%=moment(post.createdAt).fromNow().charAt(0).toUpperCase()+moment(post.createdAt).fromNow().slice(1)%></small>   
+        </a>
+        <% if (locals.user && locals.user.id == post.user.id){ %>
+            <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><ion-icon name="close"></ion-icon></a>
+        <% } %>
+    </div>
+    <div class="post-wrap">
+        <p>
+            <%= post.content %>
+        </p>
+        <% if(post.picture){ %>
+            <div class="post-module">
+                <img src="<%= post.picture %>" alt="<%= post.user.name %>">
+            </div>
+        <% } %>
+    </div>
+    
+    <div class="like-comment-module">
+        <small>
+            <% if (locals.user){ %>
+                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                    <ion-icon name="heart-outline"></ion-icon>&nbsp;<%= post.likes.length %>
+                </a>
+            <% }else{ %>
+                <%= post.likes.length %> Likes
+            <% } %>    
+        </small>
+        <small>
+            <ion-icon class="comment-btn" name="chatbox-outline"></ion-icon>
+        </small>
+        <div class="post-comments toggle-commentbox">
+            <ion-icon class="close-btn" name="close"></ion-icon>
+            
+            <div class="comment-module">
+                <div class="post-image">
+                    <% if(post.picture){ %>
+                        <img src="<%= post.picture %>" alt="<%= post.user.name %>">
+                    <% }else{ %>
+                        <div class="outer">
+                            <p class="post-content">
+                                <%= post.content %>
+                            </p>
+                        </div> 
+                    <% } %>    
+                </div>
+                <div class="comment-section">
+                    <a class="post-user" href="/users/profile/<%=post.user._id%>">
+                        <% if(post.user.avatar){ %>
+                            <div class="profile">
+                                <img src="<%=post.user.avatar%>" alt="<%=post.user.name%>" width="50">
+                            </div>
+                        <% }else{ %>
+                            <div class="profile">
+                                <img src="https://avatars.dicebear.com/api/avataaars/<%=post.user.name%>.svg" alt="<%=post.user.name%>" width="50">
+                            </div>
+                        <% } %>     
+                        <h4>
+                            <%= post.user.name %>
+                        </h4>   
+                    </a>
+                    <div class="post-comments-list">
+                        <ul id="post-comments-<%= post._id %>">
+                            <% for (comment of post.comments){%>
+                                <%- include('_comment') -%>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <% if (locals.user){%>
+                        <form class="comment-form" id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+                            <input type="text" name="content" placeholder="Add a comment..." required>
+                            <input type="hidden" name="post" value="<%= post._id %>" >
+                            <input class="post-btn" type="submit" value="Post">
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</li>

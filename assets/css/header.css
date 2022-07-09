@@ -1,0 +1,41 @@
+header nav {
+  position: sticky;
+  width: 100%;
+  background: transparent;
+  color: royalblue;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid royalblue;
+  padding: 0.8rem 5rem; }
+  header nav .mini-logo {
+    width: 50%; }
+  header nav .auth-links {
+    width: 50%; }
+    header nav .auth-links ul {
+      position: relative;
+      display: flex;
+      align-items: center;
+      list-style: none; }
+      header nav .auth-links ul a {
+        text-decoration: none;
+        color: royalblue;
+        margin: 0 5px; }
+      header nav .auth-links ul .right-nav {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center; }
+
+@media only screen and (max-width: 768px) {
+  header nav {
+    padding: 0.8rem 2rem; }
+    header nav .auth-links ul .logoutBtn {
+      display: none; } }
+
+@media only screen and (max-width: 425px) {
+  header nav {
+    padding: 0.8rem 0.6rem; }
+    header nav .mini-logo a img {
+      height: 2rem; }
+    header nav .auth-links ul a {
+      font-size: 0.8rem; } }

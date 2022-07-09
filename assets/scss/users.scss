@@ -1,0 +1,189 @@
+
+
+.profile{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35vw;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+
+    .user-profile{
+        height: 12rem;
+        width: 12rem;
+        z-index: 1;
+        
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+            border: 2px solid royalblue;
+        }
+    }
+
+    .edit-btn{
+        margin-top: 1rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid royalblue;
+        background: white;
+        font-size: 1.6rem;
+        z-index: 2;
+    }
+
+    .edit-btn:hover{
+        color: royalblue;
+    }
+
+    .active-user{
+        display: none;
+    }
+
+    .form-detail{
+        display: none;
+    }
+
+    form{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        label{
+            color: white;
+        }
+    
+        input{
+            margin: 5px 0;
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        input:focus{
+            border-bottom: 1px solid royalblue;
+        }
+
+        #avatar{
+            border: none;
+        }
+
+        .update-btn{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #update{
+            padding: 0.4rem 3rem;
+            width: fit-content;
+            border: 1px solid white;
+            background: white;
+            color: royalblue;
+            border-radius: 100vmax;
+            margin-top: 1rem;
+            letter-spacing: 2px;
+        }
+
+        #update:hover{
+            background: transparent;
+            color: white;
+        }
+    }
+
+    .profile-user{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+        
+        p{
+            margin: 8px 0;
+            color: white;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .userLogoutBtn{
+            padding: 0.4rem 3rem;
+            width: fit-content;
+            border: 1px solid white;
+            background: white;
+            color: royalblue;
+            border-radius: 100vmax;
+            margin-top: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .userLogoutBtn:hover{
+            background: transparent;
+            color: white;
+        }
+    }
+
+    .friend-btn{
+        margin: 1rem 0;
+    }
+
+    .friend-toggle-btn{
+        padding: 0.4rem 3rem;
+        width: fit-content;
+        border: 1px solid white;
+        background: white;
+        color: royalblue;
+        border-radius: 100vmax;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+
+    .friend-toggle-btn:hover{
+        background: transparent;
+        color: white;
+    }
+
+}
+
+@media only screen and (max-width: 1408px){
+    .profile{
+        width: 40vw;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .profile{
+        width: 48vw;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .profile{
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .profile{
+        width: 95vw;
+    }
+}
+
+

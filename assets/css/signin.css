@@ -1,0 +1,93 @@
+.signin-module {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 35vw;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px; }
+  .signin-module h1 {
+    display: flex;
+    width: 100%;
+    color: white;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid royalblue; }
+  .signin-module form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%; }
+    .signin-module form label {
+      color: white; }
+    .signin-module form input {
+      width: 100%;
+      margin: 5px 0;
+      color: white;
+      background: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+    .signin-module form input:focus {
+      border-bottom: 1px solid royalblue; }
+    .signin-module form .signin-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .signin-module form #submit {
+      padding: 0.4rem 3rem;
+      font-size: 1rem;
+      width: fit-content;
+      border: 1px solid white;
+      background: white;
+      color: royalblue;
+      border-radius: 100vmax;
+      cursor: pointer;
+      margin-top: 1rem;
+      letter-spacing: 2px; }
+    .signin-module form #submit:hover {
+      background: transparent;
+      color: white; }
+  .signin-module .password-link {
+    margin: 0.5rem 0; }
+  .signin-module .password-link a {
+    text-decoration: none; }
+  .signin-module p {
+    color: white;
+    margin: 1rem 0; }
+  .signin-module button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid white; }
+    .signin-module button a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white; }
+  .signin-module button a:hover {
+    color: royalblue; }
+
+@media only screen and (max-width: 1408px) {
+  .signin-module {
+    width: 40vw; } }
+
+@media only screen and (max-width: 1024px) {
+  .signin-module {
+    width: 48vw; } }
+
+@media only screen and (max-width: 768px) {
+  .signin-module {
+    width: 80vw; } }
+
+@media only screen and (max-width: 425px) {
+  .signin-module {
+    width: 95vw; } }

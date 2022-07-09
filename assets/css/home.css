@@ -1,0 +1,548 @@
+#home-container {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  margin-bottom: 80px;
+  overflow: hidden; }
+  #home-container #side-nav {
+    display: none; }
+  #home-container #profile-section {
+    position: relative;
+    width: 25%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    #home-container #profile-section #close-btn {
+      display: none;
+      position: absolute;
+      font-size: 2rem;
+      right: 1rem; }
+    #home-container #profile-section a {
+      text-decoration: none;
+      color: black; }
+    #home-container #profile-section .user-profile {
+      height: 10rem;
+      width: 10rem; }
+      #home-container #profile-section .user-profile img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%; }
+    #home-container #profile-section #user-info {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column; }
+    #home-container #profile-section #chat-btn {
+      display: none; }
+    #home-container #profile-section .friends-list {
+      width: 100%;
+      margin-top: 2rem; }
+      #home-container #profile-section .friends-list .friends {
+        display: flex;
+        flex-direction: column; }
+        #home-container #profile-section .friends-list .friends .all-friends {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0.5rem 0; }
+          #home-container #profile-section .friends-list .friends .all-friends .f-list {
+            display: flex;
+            align-items: center; }
+            #home-container #profile-section .friends-list .friends .all-friends .f-list .profile {
+              height: 2.5rem;
+              width: 2.5rem;
+              margin-right: 1rem; }
+              #home-container #profile-section .friends-list .friends .all-friends .f-list .profile img {
+                height: 100%;
+                width: 100%;
+                border-radius: 50%; }
+          #home-container #profile-section .friends-list .friends .all-friends .msg-clo {
+            display: flex;
+            align-items: center;
+            justify-content: center; }
+            #home-container #profile-section .friends-list .friends .all-friends .msg-clo button {
+              padding: 2px 10px;
+              margin-right: 0.8rem;
+              background: white;
+              color: royalblue;
+              border: 1px solid royalblue;
+              border-radius: 100vmax;
+              cursor: pointer; }
+            #home-container #profile-section .friends-list .friends .all-friends .msg-clo button:hover {
+              background: royalblue;
+              color: white; }
+  #home-container #feed-posts::-webkit-scrollbar {
+    display: none; }
+  #home-container #feed-posts {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-left: 1px solid royalblue;
+    border-right: 1px solid royalblue; }
+    #home-container #feed-posts form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      border-bottom: 1px solid royalblue;
+      padding-bottom: 2rem; }
+      #home-container #feed-posts form textarea {
+        resize: none;
+        overflow: hidden;
+        padding: 5px;
+        font-size: 1rem;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%; }
+      #home-container #feed-posts form input[type=file] {
+        display: none; }
+      #home-container #feed-posts form .custom-file-upload {
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer; }
+        #home-container #feed-posts form .custom-file-upload ion-icon {
+          color: royalblue;
+          font-size: 1.5rem;
+          z-index: 1; }
+      #home-container #feed-posts form .post-btn {
+        background: royalblue;
+        color: white;
+        font-size: 1rem;
+        padding: 0.2rem 1.1rem;
+        letter-spacing: 1.5px;
+        border: 1px solid royalblue;
+        border-radius: 100vmax;
+        cursor: pointer; }
+      #home-container #feed-posts form .post-btn:hover {
+        background: white;
+        color: royalblue; }
+    #home-container #feed-posts #posts-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      #home-container #feed-posts #posts-container ul {
+        width: 100%;
+        list-style: none; }
+        #home-container #feed-posts #posts-container ul .post-box {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin: 1rem 0; }
+          #home-container #feed-posts #posts-container ul .post-box a {
+            text-decoration: none;
+            color: black; }
+          #home-container #feed-posts #posts-container ul .post-box .post-head {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; }
+            #home-container #feed-posts #posts-container ul .post-box .post-head .post-user {
+              display: flex;
+              align-items: center; }
+              #home-container #feed-posts #posts-container ul .post-box .post-head .post-user .profile {
+                height: 2.5rem;
+                width: 2.5rem;
+                margin-right: 1rem; }
+                #home-container #feed-posts #posts-container ul .post-box .post-head .post-user .profile img {
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 50%; }
+          #home-container #feed-posts #posts-container ul .post-box .post-wrap {
+            width: 100%;
+            padding-left: 3.5rem; }
+            #home-container #feed-posts #posts-container ul .post-box .post-wrap .post-module {
+              width: 100%;
+              margin-top: 0.6rem; }
+              #home-container #feed-posts #posts-container ul .post-box .post-wrap .post-module img {
+                width: 100%;
+                border-radius: 10px; }
+          #home-container #feed-posts #posts-container ul .post-box .like-comment-module {
+            width: 100%;
+            padding-left: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly; }
+            #home-container #feed-posts #posts-container ul .post-box .like-comment-module .toggle-like-button {
+              display: flex;
+              align-items: center;
+              font-size: 1rem; }
+            #home-container #feed-posts #posts-container ul .post-box .like-comment-module ion-icon {
+              font-size: 1.5rem;
+              cursor: pointer; }
+            #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments {
+              position: fixed;
+              width: 100%;
+              height: 100vh;
+              inset: 0;
+              padding: 3rem 10rem;
+              background-color: rgba(0, 0, 0, 0.5);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: 0.5s;
+              z-index: 2000; }
+              #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .close-btn {
+                position: absolute;
+                font-size: 2rem;
+                top: 3rem;
+                right: 5rem;
+                color: white; }
+              #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                z-index: 2; }
+                #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .post-image {
+                  width: 60%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: white;
+                  overflow: hidden;
+                  border-right: 1px solid black; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .post-image .outer {
+                    padding: 5rem; }
+                    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .post-image .outer .post-content {
+                      padding: 3rem;
+                      border-radius: 1rem;
+                      background: #e2e1e1; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .post-image img {
+                    height: 100%; }
+                #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section {
+                  width: 40%;
+                  background: white;
+                  border-top-right-radius: 10px;
+                  border-bottom-right-radius: 10px;
+                  position: relative; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-user {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid black;
+                    padding: 0.6rem 1rem; }
+                    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-user .profile {
+                      height: 2.5rem;
+                      width: 2.5rem;
+                      margin-right: 1rem; }
+                      #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-user .profile img {
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 50%; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list::-webkit-scrollbar {
+                    display: none; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list {
+                    width: 100%;
+                    height: 82%;
+                    padding: 0.5rem 1rem;
+                    overflow-y: auto;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none; }
+                    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul {
+                      width: 100%;
+                      list-style: none; }
+                      #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-head {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; }
+                        #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-head .comment-user {
+                          display: flex;
+                          align-items: center; }
+                          #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-head .comment-user .profile {
+                            height: 2.5rem;
+                            width: 2.5rem;
+                            margin-right: 1rem; }
+                            #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-head .comment-user .profile img {
+                              height: 100%;
+                              width: 100%;
+                              border-radius: 50%; }
+                        #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-head ion-icon {
+                          font-size: 1rem; }
+                      #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-content {
+                        margin-left: 3.5rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; }
+                        #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-content a {
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          font-size: 0.9rem; }
+                          #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .post-comments-list ul .comment-content a ion-icon {
+                            font-size: 0.9rem; }
+                  #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .comment-form {
+                    width: 100%;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: row;
+                    bottom: 0;
+                    border-top: 1px solid black;
+                    padding: 0.6rem 1rem; }
+                    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .comment-form input {
+                      width: 90%;
+                      padding: 0.2rem 0;
+                      font-size: 1rem;
+                      border: none;
+                      outline: none; }
+                    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section .comment-form .post-btn {
+                      width: fit-content;
+                      background: transparent;
+                      color: royalblue;
+                      cursor: pointer; }
+            #home-container #feed-posts #posts-container ul .post-box .like-comment-module .toggle-commentbox {
+              display: none; }
+        #home-container #feed-posts #posts-container ul .post-box:not(:last-child) {
+          border-bottom: 1px solid royalblue;
+          padding-bottom: 1rem; }
+  #home-container #user-friends {
+    position: relative;
+    width: 25%;
+    padding: 2rem;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    #home-container #user-friends #closeUser-btn {
+      display: none;
+      position: absolute;
+      font-size: 2rem;
+      left: 1rem; }
+    #home-container #user-friends input[type="search"]::-webkit-search-decoration,
+    #home-container #user-friends input[type="search"]::-webkit-search-cancel-button,
+    #home-container #user-friends input[type="search"]::-webkit-search-results-button,
+    #home-container #user-friends input[type="search"]::-webkit-search-results-decoration {
+      -webkit-appearance: none; }
+    #home-container #user-friends #search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%; }
+      #home-container #user-friends #search-box #search-input {
+        width: 100%;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        border: 2px solid black;
+        border-radius: 100vmax;
+        margin-bottom: 1rem; }
+      #home-container #user-friends #search-box #search-icon {
+        position: absolute;
+        font-size: 1.8rem;
+        right: 0.6rem;
+        bottom: 1.4rem;
+        color: royalblue; }
+    #home-container #user-friends #lookup {
+      position: absolute;
+      width: 100%;
+      background-color: white;
+      border: 1px solid royalblue;
+      top: 3rem;
+      border-radius: 1rem; }
+      #home-container #user-friends #lookup .user-list {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+        padding: 0.3rem; }
+        #home-container #user-friends #lookup .user-list .profile {
+          height: 2.5rem;
+          width: 2.5rem;
+          margin-right: 1rem; }
+          #home-container #user-friends #lookup .user-list .profile img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%; }
+    #home-container #user-friends .user-col {
+      display: flex;
+      flex-direction: column; }
+      #home-container #user-friends .user-col .all-user {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0; }
+        #home-container #user-friends .user-col .all-user .user-list {
+          display: flex;
+          align-items: center; }
+          #home-container #user-friends .user-col .all-user .user-list .profile {
+            height: 2.5rem;
+            width: 2.5rem;
+            margin-right: 1rem; }
+            #home-container #user-friends .user-col .all-user .user-list .profile img {
+              height: 100%;
+              width: 100%;
+              border-radius: 50%; }
+    #home-container #user-friends a {
+      text-decoration: none;
+      color: black; }
+  #home-container .landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white; }
+    #home-container .landing-page h1 {
+      font-size: 5rem; }
+  #home-container #bottom-nav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 5em;
+    background: royalblue;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    z-index: 10; }
+    #home-container #bottom-nav ion-icon {
+      font-size: 2rem;
+      color: darkgray; }
+    #home-container #bottom-nav .active {
+      color: white; }
+
+@media only screen and (max-width: 1200px) {
+  #home-container #side-nav {
+    width: 10%;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh; }
+    #home-container #side-nav .user-profile {
+      height: 4rem;
+      width: 4rem; }
+      #home-container #side-nav .user-profile img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%; }
+    #home-container #side-nav #chat-btn {
+      display: block;
+      margin: 2rem 0; }
+      #home-container #side-nav #chat-btn ion-icon {
+        font-size: 2.2rem; }
+    #home-container #side-nav #search-btn {
+      display: none; }
+  #home-container #profile-section {
+    position: absolute;
+    width: 40%;
+    left: -40%;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    border-right: 1px solid royalblue;
+    transition: 0.5s; }
+    #home-container #profile-section #close-btn {
+      display: block; }
+  #home-container #feed-posts {
+    width: 65%; }
+    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments {
+      padding: 2rem 2rem; }
+      #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .close-btn {
+        right: 0.5rem;
+        top: 0.5rem; }
+  #home-container #user-friends {
+    width: 25%; } }
+
+@media only screen and (max-width: 1024px) {
+  #home-container #side-nav .user-profile {
+    height: 3rem;
+    width: 3rem; }
+    #home-container #side-nav .user-profile img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%; }
+  #home-container #side-nav #search-btn {
+    display: block; }
+    #home-container #side-nav #search-btn ion-icon {
+      font-size: 2.2rem; }
+  #home-container #feed-posts {
+    width: 90%;
+    border-right: none; }
+    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .post-image {
+      display: none; }
+    #home-container #feed-posts #posts-container ul .post-box .like-comment-module .post-comments .comment-module .comment-section {
+      width: 100%; }
+  #home-container #user-friends {
+    position: absolute;
+    width: 35%;
+    right: -35%;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    border-left: 1px solid royalblue;
+    transition: 0.5s; }
+    #home-container #user-friends #closeUser-btn {
+      display: block; }
+    #home-container #user-friends #search-box {
+      margin-top: 2.5rem; } }
+
+@media only screen and (max-width: 768px) {
+  #home-container .landing-page h1 {
+    font-size: 4rem; }
+  #home-container #side-nav {
+    display: none; }
+  #home-container #profile-section {
+    position: relative;
+    width: 100%;
+    display: none;
+    left: 0;
+    position: relative;
+    padding: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    #home-container #profile-section #close-btn {
+      display: none; }
+  #home-container #feed-posts {
+    width: 100%;
+    border: none; }
+  #home-container #user-friends {
+    position: relative;
+    width: 100%;
+    display: none;
+    right: 0;
+    padding: 2rem;
+    height: 100vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    #home-container #user-friends #closeUser-btn {
+      display: none; }
+  #home-container #bottom-nav {
+    display: flex; } }
+
+@media only screen and (max-width: 425px) {
+  #home-container .landing-page h1 {
+    font-size: 3rem; }
+  #home-container h4 {
+    font-size: 0.7rem; }
+  #home-container small {
+    font-size: 0.5rem; }
+  #home-container a {
+    font-size: 0.7rem; }
+  #home-container p {
+    font-size: 0.7rem; } }
